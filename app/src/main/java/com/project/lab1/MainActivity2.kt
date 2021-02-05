@@ -15,7 +15,11 @@ class MainActivity2 : AppCompatActivity() {
 
         val intent: Intent = getIntent();
         val theme = intent.getStringExtra("theme").toString()
-        Log.d("mess", theme)
+        val name = intent.getStringExtra("name").toString()
+
+        val welcome_txt: TextView = findViewById(R.id.welcome_msg)
+        welcome_txt.setText("Hey ${name} I hope you like jokes. Here is one :)")
+
         val text: TextView = findViewById(R.id.joke2)
         if (theme == "Concurrency") {
             text.setText("Knock Knock. \nRace condition. \nWho's there?")
@@ -29,6 +33,7 @@ class MainActivity2 : AppCompatActivity() {
 
         button.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("name", name.toUpperCase());
             startActivity(intent)
         }
     }

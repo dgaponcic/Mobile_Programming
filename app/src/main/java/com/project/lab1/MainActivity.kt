@@ -1,35 +1,64 @@
 package com.project.lab1
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.NumberPicker
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
+
 class MainActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val intent: Intent = getIntent();
+        var name = intent.getStringExtra("name")
+        val alertName: AlertDialog.Builder = AlertDialog.Builder(this)
+        val editTextName1 = EditText(this)
+        val button: Button = findViewById(R.id.button1)
         val picker1: NumberPicker = findViewById(R.id.joke_picker);
+        var username: TextView = findViewById(R.id.username)
+        val pickerVals: Array<String>
+        val layoutName = LinearLayout(this)
+
+        pickerVals = arrayOf("Concurrency", "Hardcore", "Garbage collector")
+
+        alertName.setTitle(" What is your name?")
+        alertName.setView(editTextName1)
+        layoutName.orientation = LinearLayout.VERTICAL
+        layoutName.addView(editTextName1)
+
+        alertName.setView(layoutName)
+        alertName.setPositiveButton("Continue", object: DialogInterface.OnClickListener {
+            override fun onClick(dialog: DialogInterface, whichButton:Int) {
+                name = editTextName1.getText().toString().toLowerCase();
+                username.setText("Hello ${name}")
+            }
+        })
+
+        if (name.isNullOrEmpty()) {
+            alertName.show()
+            username.setText("Hello");
+        } else {
+            username.setText("Hello ${name}");
+        }
+
         picker1.setMaxValue(2);
         picker1.setMinValue(0);
-        val pickerVals: Array<String>
-        pickerVals = arrayOf("Concurrency", "Hardcore", "Garbage collector")
         picker1.setDisplayedValues(pickerVals);
-
-        val button: Button = findViewById(R.id.button1)
 
         button.setOnClickListener {
             val intent = Intent(this, MainActivity2::class.java)
             intent.setAction(Intent.ACTION_SEND)
             intent.setType("text/plain");
-            Log.d("mess2", picker1.value.toString())
 
             intent.putExtra("theme", pickerVals[picker1.value]);
-//            intent.putExtra("joke,  R.string.joke);
-
+            intent.putExtra("name", name);
             startActivity(intent)
         }
     }
