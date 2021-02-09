@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         layoutName.orientation = LinearLayout.VERTICAL
         layoutName.addView(addName)
         nameDialog.setView(layoutName)
+        nameDialog.setCancelable(false);
         nameDialog.setPositiveButton("Continue", object: DialogInterface.OnClickListener {
             override fun onClick(dialog: DialogInterface, whichButton:Int) {
                 name = addName.getText().toString().toLowerCase();
