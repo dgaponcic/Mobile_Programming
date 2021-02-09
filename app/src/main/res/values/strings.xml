@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lab1</string>
+    <string name="app_name">LAB1</string>
     <string name="text1">A joke a day keeps depression away</string>
     <string name="button1">Gimme dat joke</string>
     <string name="title_activity_main2">MainActivity</string>
