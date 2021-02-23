@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val messageText: TextView = findViewById(R.id.messageText)
+        val messageText: TextView = findViewById(R.id.messageText)
 
         recyclerListExampleButton.setOnClickListener {
             startActivity(Intent(this, FeedActivity::class.java))
