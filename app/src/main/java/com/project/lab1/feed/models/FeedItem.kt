@@ -1,5 +1,7 @@
 package com.project.lab1.feed.models
 
-class FeedItem(val header: String,
-               val description: String,
-               val image: String)
+import java.io.Serializable
+
+class FeedItem(val postAuthor: String,
+               val postDescription: String,
+               val postImage: String) :Serializable
