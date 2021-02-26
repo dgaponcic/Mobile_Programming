@@ -1,5 +1,6 @@
 package com.project.lab1.feed.viewHolders
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,6 +11,7 @@ import com.squareup.picasso.Picasso
 
 class FeedItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
+    private var view = view
     private var authorTextView: TextView = view.findViewById(R.id.headerTextView)
     private var descriptionTextView: TextView = view.findViewById(R.id.descriptionTextView)
     private var imageView: ImageView = view.findViewById(R.id.imageView)
