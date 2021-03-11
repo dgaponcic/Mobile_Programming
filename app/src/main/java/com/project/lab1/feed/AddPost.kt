@@ -8,15 +8,20 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.project.lab1.R
+import com.project.lab1.databinding.ActivityAddPostBinding
+import com.project.lab1.databinding.ActivityFeedBinding
 import com.project.lab1.feed.models.FeedItem
 
 class AddPost : AppCompatActivity() {
+    private lateinit var binding: ActivityAddPostBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_post)
+        binding = ActivityAddPostBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
+
+        binding.fab.setOnClickListener { view ->
             var posts = intent.getSerializableExtra("posts") as Array<FeedItem>
 
             val postUsername = findViewById<TextView>(R.id.AddPostUsername).text.toString()
