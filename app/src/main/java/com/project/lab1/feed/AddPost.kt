@@ -16,13 +16,13 @@ class AddPost : AppCompatActivity() {
         binding = ActivityAddPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         binding.fab.setOnClickListener { view ->
             var posts = intent.getSerializableExtra("posts") as Array<FeedItem>
 
             val postUsername = findViewById<TextView>(R.id.AddPostUsername).text.toString()
             val postDescription = findViewById<TextView>(R.id.AddPostDescription).text.toString()
             val postImage = findViewById<TextView>(R.id.AddPostImage).text.toString()
+
             if (!postUsername.isNullOrEmpty() && !postDescription.isNullOrEmpty() && !postImage.isNullOrEmpty()) {
                 var newPost = FeedItem(
                         postUsername,
