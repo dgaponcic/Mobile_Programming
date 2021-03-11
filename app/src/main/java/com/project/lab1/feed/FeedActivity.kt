@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.project.lab1.R
 import com.project.lab1.databinding.ActivityFeedBinding
 import com.project.lab1.feed.adapters.FeedRecyclerViewAdapter
 import com.project.lab1.feed.models.FeedItem
-import kotlinx.android.synthetic.main.activity_main.*
 
 class FeedActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFeedBinding

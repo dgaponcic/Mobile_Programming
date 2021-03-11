@@ -3,7 +3,6 @@ package com.project.lab1
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import com.project.lab1.databinding.ActivityMainBinding
 import com.project.lab1.feed.FeedActivity
 import com.project.lab1.feed.models.FeedItem
@@ -18,7 +17,6 @@ class MainActivity : AppCompatActivity(){
 
         var posts = intent.getSerializableExtra("posts")
 
-        val messageText: TextView = findViewById(R.id.messageText)
         if (posts == null) {
             posts = arrayOf(
                 FeedItem(

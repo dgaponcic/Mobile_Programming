@@ -2,14 +2,10 @@ package com.project.lab1.feed
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.project.lab1.R
 import com.project.lab1.databinding.ActivityAddPostBinding
-import com.project.lab1.databinding.ActivityFeedBinding
 import com.project.lab1.feed.models.FeedItem
 
 class AddPost : AppCompatActivity() {
