@@ -21,6 +21,6 @@
 
 * Create your UI and layout to support portrait and landscape orientations and different screen sizes starting from phone with small screens (4 inch) to tablets with screen size 12 inch. Supporting of different screen sizes and orientation is mandatory.
     
-## Implementation
-TODO
+## Demo
+![Alt Text](https://github.com/dgaponcic/Mobile_Programming/blob/lab2/demo.gif)
 
