@@ -19,6 +19,9 @@ class FeedItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
     fun bind(item: FeedItem) {
         authorTextView.text = item.postAuthor
         descriptionTextView.text = item.postDescription
-        Picasso.get().load(item.postImage).into(imageView)
+        Picasso.get()
+            .load(item.postImage)
+            .error(R.drawable.placeholder)
+            .into(imageView)
     }
 }
