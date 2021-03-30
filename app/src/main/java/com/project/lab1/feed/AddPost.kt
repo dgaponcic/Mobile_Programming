@@ -17,7 +17,7 @@ class AddPost : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.fab.setOnClickListener { view ->
-            var posts = intent.getSerializableExtra("posts") as Array<FeedItem>
+//            var posts = intent.getSerializableExtra("posts") as Array<FeedItem>
 
             val postUsername = findViewById<TextView>(R.id.AddPostUsername).text.toString()
             val postDescription = findViewById<TextView>(R.id.AddPostDescription).text.toString()
@@ -29,10 +29,10 @@ class AddPost : AppCompatActivity() {
                         postDescription,
                         postImage
                 )
-                posts = arrayOf(newPost) + posts
+//                posts = arrayOf(newPost) + posts
 
                 val intent = Intent(this, FeedActivity::class.java)
-                intent.putExtra("posts", posts);
+//                intent.putExtra("posts", posts);
                 startActivity(intent)
             }
         }

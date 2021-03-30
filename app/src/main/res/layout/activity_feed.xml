@@ -22,4 +22,8 @@
         android:text="Add New Post"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        layout="@layout/progress_bar_layout"
+        android:id="@+id/progressOverlay" />
 </androidx.constraintlayout.widget.ConstraintLayout>

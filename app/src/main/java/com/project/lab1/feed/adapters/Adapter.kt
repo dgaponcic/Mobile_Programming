@@ -17,6 +17,7 @@ class FeedRecyclerViewAdapter(private val dataSet: Array<FeedItem>) : RecyclerVi
             parent,
             false
         )
+
         return FeedItemViewHolder(binding)
     }
 
