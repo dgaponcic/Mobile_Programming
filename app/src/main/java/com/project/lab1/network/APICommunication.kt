@@ -2,7 +2,6 @@ package com.project.lab1.network;
 
 import com.project.lab1.network.error.HttpErrorInterceptor
 import com.project.lab1.network.models.Image
-import com.project.lab1.network.models.Launch
 import com.sample.app.data.network.error.ApiError
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient
@@ -46,5 +45,13 @@ class APICommunication {
 
     suspend fun getPastImages(): ArrayList<Image> {
         return apiService.getPastImages()
+    }
+
+    suspend fun getImage(id: String): Image {
+        return apiService.getImage(id)
+    }
+
+    suspend fun auth() {
+
     }
 }

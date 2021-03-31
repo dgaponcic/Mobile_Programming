@@ -33,7 +33,6 @@ class FeedActivity : AppCompatActivity() {
             kotlin.runCatching {
                 apiService.getPastImages()
             }.onSuccess {
-                Log.d("cmon", "here")
                 handleAPIData(it)
             }.onFailure {
                 print(it)

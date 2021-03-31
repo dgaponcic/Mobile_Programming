@@ -6,28 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/messageText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerListExampleButton"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerListExampleButton"
-        app:layout_constraintStart_toStartOf="@+id/recyclerListExampleButton"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/recyclerListExampleButton"
-        android:layout_width="257dp"
-        android:layout_height="41dp"
-        android:text="See Feed"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.66" />
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></WebView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
