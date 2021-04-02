@@ -1,32 +1,30 @@
 package com.project.lab1.feed
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.project.lab1.databinding.ActivityFeedBinding
-import com.project.lab1.feed.adapters.FeedRecyclerViewAdapter
-import com.project.lab1.feed.models.FeedItem
+import com.project.lab1.databinding.ActivitySeeNotesBinding
+import com.project.lab1.feed.adapters.NoteAdapter
+import com.project.lab1.feed.models.NoteItem
 import com.project.lab1.network.APICommunication
-import com.project.lab1.network.models.Image
+import com.project.lab1.network.models.NoteResponse
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
-class FeedActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityFeedBinding
+class SeeNotes : AppCompatActivity() {
+    private lateinit var binding: ActivitySeeNotesBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var apiService: APICommunication
 
-    private fun getPastImages(token: String) {
+    private fun getNotes(token: String) {
         GlobalScope.launch {
             kotlin.runCatching {
-                apiService.getPastImages(token)
+                apiService.getNotes(token)
             }.onSuccess {
                 handleAPIData(it)
             }.onFailure {
@@ -35,17 +33,14 @@ class FeedActivity : AppCompatActivity() {
         }
     }
 
-    private fun handleAPIData(data: ArrayList<Image>) {
-        val posts = data.map { FeedItem(
-            it.id,
-            it.alt_description,
-            it.urls.small)
+    private fun handleAPIData(data: NoteResponse) {
+        val notes = data.notes.map { NoteItem(
+                it.link)
         }.toTypedArray()
 
         MainScope().launch {
-            viewAdapter = FeedRecyclerViewAdapter(posts)
-
-            recyclerView = binding.feedRecyclerView.apply {
+            viewAdapter = NoteAdapter(notes)
+            recyclerView = binding.noteRecyclerView.apply {
                 layoutManager = viewManager
                 adapter = viewAdapter
             }
@@ -54,22 +49,17 @@ class FeedActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityFeedBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        val seeNotes: Button = binding.seeNotes
-        seeNotes.setOnClickListener {
-            startActivity(Intent(this, SeeNotes::class.java))
-        }
+        binding = ActivitySeeNotesBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         viewManager = LinearLayoutManager(this)
         apiService = APICommunication()
-
         val pref = getSharedPreferences("tokens", MODE_PRIVATE)
         val token = pref.getString("auth", "")
 
         if (token != null) {
-            getPastImages(token)
+            getNotes(token)
         }
     }
 }

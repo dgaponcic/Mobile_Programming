@@ -1,26 +1,8 @@
 <resources>
     <string name="app_name">Some nice name for App</string>
-    <!--    <string name="text1">A joke a day keeps depression away</string>-->
-    <!--    <string name="button1">Gimme dat joke</string>-->
-    <!--    <string name="title_activity_main2">MainActivity</string>-->
-    <!--    &lt;!&ndash; Strings used for fragments for navigation &ndash;&gt;-->
-    <!--    <string name="first_fragment_label">First Fragment</string>-->
-    <!--    <string name="second_fragment_label">Second Fragment</string>-->
-    <!--    <string name="next">Home</string>-->
     <string name="previous">Previous</string>
-
-    <!--    <string name="hello_first_fragment">Hello first fragment</string>-->
-    <!--    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>-->
-    <!--    <string name="home">Home</string>-->
-    <!--    <string name="screen_2">Screen 2</string>-->
-    <!--    <string name="joke">Click for a joke.</string>-->
-    <!--    <string name="fire">hz</string>-->
-    <!--    <string name="dialog_fire_missiles">hz2</string>-->
-    <!--    <string name="cancel">cancel</string>-->
-    <!--    <string name="textview">TextView</string>-->
     <string name="title_activity_add_post">AddPost</string>
     <string name="title_activity_main">MainActivity</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
@@ -30,4 +12,8 @@
     <string name="title_activity_image_post">ImagePost</string>
     <string name="title_activity_menu">Menu</string>
     <string name="title_activity_app_menu">AppMenu</string>
+    <string name="title_activity_see_notes">See Notes</string>
+    <string name="navigation_drawer_open">Drawer open</string>
+    <string name="navigation_drawer_close">Drawer close</string>
+    <string name="title_activity_navigate">navigate</string>
 </resources>
