@@ -1,4 +1,4 @@
-package com.project.lab1.feed.adapters
+package com.project.lab1.presentation.feed.adapters
 
 
 import android.content.Intent
@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.project.lab1.databinding.FeedCellLayoutBinding
 //import com.project.lab1.databinding.ActivitySeeNotesBinding
-import com.project.lab1.feedImage.ImageActivity
-import com.project.lab1.feed.models.FeedItem
-import com.project.lab1.feed.viewHolders.FeedItemViewHolder
+import com.project.lab1.presentation.feedImage.ImageActivity
+import com.project.lab1.presentation.feed.models.FeedItem
+import com.project.lab1.presentation.feed.viewHolders.FeedItemViewHolder
 import kotlinx.android.synthetic.main.feed_cell_layout.view.*
 
 

@@ -1,11 +1,11 @@
-package com.project.lab1.notes.adapters
+package com.project.lab1.presentation.notes.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.project.lab1.databinding.NoteCellLayoutBinding
-import com.project.lab1.notes.models.NoteItem
-import com.project.lab1.notes.viewHolders.NoteViewHolder
+import com.project.lab1.presentation.notes.models.NoteItem
+import com.project.lab1.presentation.notes.viewHolders.NoteViewHolder
 
 
 class NoteAdapter(private val dataSet: Array<NoteItem>) : RecyclerView.Adapter<NoteViewHolder>() {

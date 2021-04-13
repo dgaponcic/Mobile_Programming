@@ -1,10 +1,10 @@
-package com.project.lab1.menu
+package com.project.lab1.presentation.menu
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.project.lab1.databinding.ActivityMenuBinding
-import com.project.lab1.feed.FeedActivity
+import com.project.lab1.presentation.feed.FeedActivity
 
 class Menu : AppCompatActivity() {
     private lateinit var binding: ActivityMenuBinding

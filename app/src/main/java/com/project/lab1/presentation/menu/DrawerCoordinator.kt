@@ -1,4 +1,4 @@
-package com.project.lab1.menu
+package com.project.lab1.presentation.menu
 
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -10,7 +10,8 @@ import com.project.lab1.R
 class DrawerCoordinator(private val drawer: DrawerLayout,
                         private val navigationView: NavigationView,
                         private val toggle: ActionBarDrawerToggle,
-                        private val navigator: Navigator) {
+                        private val navigator: Navigator
+) {
 
     private val menuItemSelectedConsumers: HashMap<Int, (() -> Unit)>
 

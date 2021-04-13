@@ -1,9 +1,8 @@
 package com.project.lab1.network;
 
-import android.content.Context
-import android.util.Log
 import com.project.lab1.network.error.HttpErrorInterceptor
 import com.project.lab1.network.models.*
+import com.project.lab1.presentation.APIClient
 import com.sample.app.data.network.error.ApiError
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient
@@ -16,11 +15,11 @@ private const val WRITE_TIMEOUT: Long = 3000
 private const val CONNECTION_TIMEOUT: Long = 3000
 
 
-class APICommunication() {
+class APICommunication(): APIClient {
     private val client = buildClient()
 
     private var retrofit = Retrofit.Builder()
-            .baseUrl("https://cad0ecca9a28.ngrok.io")
+            .baseUrl("https://e1c6b3700881.ngrok.io")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
@@ -41,25 +40,25 @@ class APICommunication() {
                 .build()
     }
 
-    suspend fun getPastImages(token: String): ArrayList<Image> {
+    override suspend fun getPastImages(token: String): ArrayList<Image> {
         return apiService.getPastImages("JWT ${token}")
     }
 
-    suspend fun getImage(token: String, id: String): Image {
+    override suspend fun getImage(token: String, id: String): Image {
         return apiService.getImage("JWT ${token}", id)
     }
 
-    suspend fun auth(username: String, password: String): AuthToken {
+    override suspend fun auth(username: String, password: String): AuthToken {
         val body = LoginBody(username, password)
         return apiService.auth(body)
     }
 
-    suspend fun addNote(token: String, link: String) {
+    override suspend fun addNote(token: String, link: String) {
         val body = NoteBody(link)
         return apiService.addNote("JWT ${token}", body)
     }
 
-    suspend fun getNotes(token: String): NoteResponse {
+    override suspend fun getNotes(token: String): ArrayList<Note> {
         return apiService.getNotes("JWT ${token}")
     }
 }

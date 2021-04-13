@@ -1,9 +1,9 @@
-package com.project.lab1.feed.viewHolders
+package com.project.lab1.presentation.feed.viewHolders
 
 import androidx.recyclerview.widget.RecyclerView
 import com.project.lab1.R
 import com.project.lab1.databinding.FeedCellLayoutBinding
-import com.project.lab1.feed.models.FeedItem
+import com.project.lab1.presentation.feed.models.FeedItem
 import com.squareup.picasso.Picasso
 
 class FeedItemViewHolder(private val binding: FeedCellLayoutBinding): RecyclerView.ViewHolder(binding.root) {

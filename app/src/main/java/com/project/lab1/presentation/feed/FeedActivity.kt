@@ -1,4 +1,4 @@
-package com.project.lab1.feed
+package com.project.lab1.presentation.feed
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,51 +7,20 @@ import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.project.lab1.databinding.ActivityFeedBinding
-import com.project.lab1.feed.adapters.FeedRecyclerViewAdapter
-import com.project.lab1.feed.models.FeedItem
+import com.project.lab1.presentation.feed.adapters.FeedRecyclerViewAdapter
+import com.project.lab1.presentation.feed.models.FeedItem
 import com.project.lab1.network.APICommunication
-import com.project.lab1.network.models.Image
-import com.project.lab1.notes.NotesActivity
-import kotlinx.coroutines.GlobalScope
+import com.project.lab1.presentation.notes.NotesActivity
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
-class FeedActivity : AppCompatActivity() {
+class FeedActivity : FeedInput, AppCompatActivity() {
 
     private lateinit var binding: ActivityFeedBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-    private lateinit var apiService: APICommunication
-
-    private fun getPastImages(token: String) {
-        GlobalScope.launch {
-            kotlin.runCatching {
-                apiService.getPastImages(token)
-            }.onSuccess {
-                handleAPIData(it)
-            }.onFailure {
-                print(it)
-            }
-        }
-    }
-
-    private fun handleAPIData(data: ArrayList<Image>) {
-        val posts = data.map { FeedItem(
-            it.id,
-            it.alt_description,
-            it.urls.small)
-        }.toTypedArray()
-
-        MainScope().launch {
-            viewAdapter = FeedRecyclerViewAdapter(posts)
-
-            recyclerView = binding.feedRecyclerView.apply {
-                layoutManager = viewManager
-                adapter = viewAdapter
-            }
-        }
-    }
+    private var presenter = FeedPresenter(this, APICommunication())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,13 +33,22 @@ class FeedActivity : AppCompatActivity() {
         }
 
         viewManager = LinearLayoutManager(this)
-        apiService = APICommunication()
-
         val pref = getSharedPreferences("tokens", MODE_PRIVATE)
         val token = pref.getString("auth", "")
 
         if (token != null) {
-            getPastImages(token)
+            presenter.getPastImages(token)
+        }
+    }
+
+    override fun updateUI(posts: Array<FeedItem>) {
+        MainScope().launch {
+            viewAdapter = FeedRecyclerViewAdapter(posts)
+
+            recyclerView = binding.feedRecyclerView.apply {
+                layoutManager = viewManager
+                adapter = viewAdapter
+            }
         }
     }
 }

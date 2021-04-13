@@ -1,4 +1,4 @@
-package com.project.lab1.menu
+package com.project.lab1.presentation.menu
 
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle

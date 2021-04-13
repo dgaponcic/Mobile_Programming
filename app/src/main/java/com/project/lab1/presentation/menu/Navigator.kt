@@ -1,8 +1,8 @@
-package com.project.lab1.menu
+package com.project.lab1.presentation.menu
 
 import android.content.Context
 import android.content.Intent
-import com.project.lab1.feed.FeedActivity
+import com.project.lab1.presentation.feed.FeedActivity
 
 class Navigator(private val context: Context) {
 

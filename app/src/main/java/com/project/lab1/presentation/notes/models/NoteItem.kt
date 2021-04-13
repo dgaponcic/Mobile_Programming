@@ -1,4 +1,4 @@
-package com.project.lab1.notes.models
+package com.project.lab1.presentation.notes.models
 
 import java.io.Serializable
 

@@ -18,6 +18,6 @@ interface APIService {
     suspend fun addNote(@Header("Authorization") token: String, @Body body: NoteBody)
 
     @GET("notes")
-    suspend fun getNotes(@Header("Authorization") token: String): NoteResponse
+    suspend fun getNotes(@Header("Authorization") token: String): ArrayList<Note>
 }
 

@@ -13,29 +13,33 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".menu.Menu"
+            android:name=".presentation.menu.Menu"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".feedImage.ImageActivity"
+            android:name=".presentation.auth.AuthActivity"
+            android:label="Auth"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".presentation.feedImage.ImageActivity"
             android:label="@string/title_activity_image_post"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".notes.NotesActivity"
+            android:name="com.project.lab1.presentation.notes.NotesActivity"
             android:label="@string/title_activity_see_notes"
             android:theme="@style/AppTheme.NoActionBar" />
 
+<!--        <activity-->
+<!--            android:name=".presentation.MainActivity"-->
+<!--            android:label="@string/title_activity_main"-->
+<!--            android:theme="@style/AppTheme.NoActionBar" />-->
         <activity
-            android:name=".feed.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".menu.NavigationActivity"
+            android:name=".presentation.menu.NavigationActivity"
             android:label="@string/title_activity_navigate"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".feed.FeedActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".presentation.feed.FeedActivity" />
+        <activity android:name='.presentation.MainActivity'>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
