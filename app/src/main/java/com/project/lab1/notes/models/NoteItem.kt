@@ -1,4 +1,4 @@
-package com.project.lab1.feed.models
+package com.project.lab1.notes.models
 
 import java.io.Serializable
 

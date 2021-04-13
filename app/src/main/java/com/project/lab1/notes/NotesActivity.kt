@@ -1,12 +1,12 @@
-package com.project.lab1.feed
+package com.project.lab1.notes
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.project.lab1.databinding.ActivitySeeNotesBinding
-import com.project.lab1.feed.adapters.NoteAdapter
-import com.project.lab1.feed.models.NoteItem
+import com.project.lab1.notes.adapters.NoteAdapter
+import com.project.lab1.notes.models.NoteItem
 import com.project.lab1.network.APICommunication
 import com.project.lab1.network.models.NoteResponse
 import kotlinx.coroutines.GlobalScope
@@ -14,7 +14,7 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
 
-class SeeNotes : AppCompatActivity() {
+class NotesActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySeeNotesBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>

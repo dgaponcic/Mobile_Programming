@@ -1,7 +1,6 @@
-package com.project.lab1.feed
+package com.project.lab1.feedImage
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.project.lab1.R
@@ -12,7 +11,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
-class ImagePost : AppCompatActivity() {
+class ImageActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityImagePostBinding
     private lateinit var apiService: APICommunication

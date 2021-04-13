@@ -11,6 +11,7 @@ import com.project.lab1.feed.adapters.FeedRecyclerViewAdapter
 import com.project.lab1.feed.models.FeedItem
 import com.project.lab1.network.APICommunication
 import com.project.lab1.network.models.Image
+import com.project.lab1.notes.NotesActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -59,7 +60,7 @@ class FeedActivity : AppCompatActivity() {
 
         val seeNotes: Button = binding.seeNotes
         seeNotes.setOnClickListener {
-            startActivity(Intent(this, SeeNotes::class.java))
+            startActivity(Intent(this, NotesActivity::class.java))
         }
 
         viewManager = LinearLayoutManager(this)

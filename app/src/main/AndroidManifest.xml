@@ -17,12 +17,12 @@
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".feed.ImagePost"
+            android:name=".feedImage.ImageActivity"
             android:label="@string/title_activity_image_post"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".feed.SeeNotes"
+            android:name=".notes.NotesActivity"
             android:label="@string/title_activity_see_notes"
             android:theme="@style/AppTheme.NoActionBar" />
 
