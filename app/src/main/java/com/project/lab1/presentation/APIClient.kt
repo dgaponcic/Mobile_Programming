@@ -4,7 +4,6 @@ import com.project.lab1.network.models.AuthToken
 import com.project.lab1.network.models.Image
 import com.project.lab1.network.models.Note
 
-
 interface APIClient {
     suspend fun getImage(token: String, id: String): Image
     suspend fun addNote(token: String, id: String)

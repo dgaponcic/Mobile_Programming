@@ -54,7 +54,7 @@ class APICommunication(): APIClient {
     }
 
     override suspend fun addNote(token: String, link: String) {
-        val body = NoteBody(link)
+        val body = Note(link)
         return apiService.addNote("JWT ${token}", body)
     }
 

@@ -15,7 +15,7 @@ interface APIService {
     suspend fun getImage(@Header("Authorization") token: String, @Path(value = "id") id: String): Image
 
     @POST("note")
-    suspend fun addNote(@Header("Authorization") token: String, @Body body: NoteBody)
+    suspend fun addNote(@Header("Authorization") token: String, @Body body: Note)
 
     @GET("notes")
     suspend fun getNotes(@Header("Authorization") token: String): ArrayList<Note>

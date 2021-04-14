@@ -6,7 +6,6 @@ class Image (
     val height: Int,
     val color: String,
     val alt_description: String?,
-    val links: Links,
     val likes: Int,
     val urls: URLS,
     val user: User
