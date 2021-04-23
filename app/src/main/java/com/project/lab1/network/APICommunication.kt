@@ -19,7 +19,7 @@ class APICommunication(): APIClient {
     private val client = buildClient()
 
     private var retrofit = Retrofit.Builder()
-            .baseUrl("https://e1c6b3700881.ngrok.io")
+            .baseUrl("https://2df6c39fdbdf.ngrok.io")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

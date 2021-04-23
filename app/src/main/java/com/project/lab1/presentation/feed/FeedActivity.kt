@@ -9,10 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.project.lab1.databinding.ActivityFeedBinding
 import com.project.lab1.presentation.feed.adapters.FeedRecyclerViewAdapter
 import com.project.lab1.presentation.feed.models.FeedItem
-import com.project.lab1.network.APICommunication
 import com.project.lab1.presentation.notes.NotesActivity
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class FeedActivity : FeedInput, AppCompatActivity() {
 
@@ -20,7 +21,7 @@ class FeedActivity : FeedInput, AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-    private var presenter = FeedPresenter(this, APICommunication())
+    private val presenter: FeedOutput by inject { parametersOf(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -4,22 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.project.lab1.R
 import com.project.lab1.databinding.ActivityAuthBinding
-import com.project.lab1.databinding.ActivityImagePostBinding
-import com.project.lab1.databinding.ActivityMainBinding
-import com.project.lab1.network.APICommunication
-import com.project.lab1.presentation.feedImage.ImageInput
-import com.project.lab1.presentation.feedImage.ImagePresenter
-import com.project.lab1.presentation.feedImage.models.FeedImage
 import com.project.lab1.presentation.menu.NavigationActivity
-import com.squareup.picasso.Picasso
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class AuthActivity: AuthInput, AppCompatActivity() {
     private lateinit var binding: ActivityAuthBinding
-//    private val pref = getSharedPreferences("tokens", MODE_PRIVATE)
-
-    private var presenter = AuthPresenter(this, APICommunication())
+    private val presenter: AuthOutput by inject { parametersOf(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +24,6 @@ class AuthActivity: AuthInput, AppCompatActivity() {
             presenter.auth(binding.userLogin.text.toString(), binding.userPassword.text.toString())
         }
 }
-
-
 
     override fun updateUI(token: String) {
         val pref = getSharedPreferences("tokens", MODE_PRIVATE)

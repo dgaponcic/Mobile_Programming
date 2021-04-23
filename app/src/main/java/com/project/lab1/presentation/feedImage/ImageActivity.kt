@@ -5,16 +5,16 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.project.lab1.R
 import com.project.lab1.databinding.ActivityImagePostBinding
-import com.project.lab1.network.APICommunication
 import com.project.lab1.presentation.feedImage.models.FeedImage
 import com.squareup.picasso.Picasso
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class ImageActivity : ImageInput, AppCompatActivity() {
 
     private lateinit var binding: ActivityImagePostBinding
     private lateinit var link: String;
-    private var presenter = ImagePresenter(this, APICommunication())
-
+    private val presenter: ImageOutput by inject { parametersOf(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
