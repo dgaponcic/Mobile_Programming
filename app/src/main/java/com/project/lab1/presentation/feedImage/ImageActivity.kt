@@ -2,6 +2,8 @@ package com.project.lab1.presentation.feedImage
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.project.lab1.R
 import com.project.lab1.databinding.ActivityImagePostBinding
@@ -49,5 +51,17 @@ class ImageActivity : ImageInput, AppCompatActivity() {
             .fit()
             .into(binding.image)
         this.setVisible(true)
+    }
+
+    override fun showErrorAlert(message: String) {
+        AlertDialog.Builder(this)
+                .setTitle("Data Fetching Error")
+                .setMessage(message)
+                .setPositiveButton("OK", null)
+                .show()
+    }
+
+    override fun showNoteAdded() {
+        Toast.makeText(this, "Note added", Toast.LENGTH_SHORT).show()
     }
 }

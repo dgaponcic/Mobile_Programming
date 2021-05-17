@@ -14,6 +14,7 @@ class ImagePresenter(val view: ImageInput, val apiService: APIClient): ImageOutp
             }.onSuccess {
                 handleAPIData(it)
             }.onFailure {
+                handleAPIDataError(it)
                 print(it)
             }
         }
@@ -25,12 +26,19 @@ class ImagePresenter(val view: ImageInput, val apiService: APIClient): ImageOutp
             kotlin.runCatching {
                 apiService.addNote(token, link)
             }.onSuccess {
+                handleNoteAdded()
             }.onFailure {
+                handleAPIDataError(it)
                 print(it)
             }
         }
     }
 
+    private fun handleNoteAdded() {
+        MainScope().launch {
+            view.showNoteAdded()
+        }
+    }
 
     private fun handleAPIData(data: Image) {
         val image = FeedImage(data.id, data.alt_description, data.urls.small, data.user.username)
@@ -40,4 +48,9 @@ class ImagePresenter(val view: ImageInput, val apiService: APIClient): ImageOutp
         }
     }
 
+    private fun handleAPIDataError(error: Throwable) {
+        MainScope().launch {
+            view.showErrorAlert("An error occurred.")
+        }
+    }
 }
