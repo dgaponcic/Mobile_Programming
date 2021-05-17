@@ -26,11 +26,13 @@ class AuthPresenterTests {
         Dispatchers.setMain(testDispatcher)
     }
 
+
     @After
     fun tearDown() {
         Dispatchers.resetMain() // reset main dispatcher to the original Main dispatcher
         testDispatcher.cleanupTestCoroutines()
     }
+
 
     @Test
     fun auth_onSuccess_shouldUpdateUI() = runBlockingTest {
@@ -61,6 +63,7 @@ class AuthPresenterTests {
         val tokenStub = mock<AuthToken>()
         val username = "username"
         val password = "password"
+
         whenever(tokenStub.access_token).thenReturn((""))
         whenever(apiServiceMock.auth(username, password)).thenReturn(tokenStub)
 
@@ -69,6 +72,7 @@ class AuthPresenterTests {
         verify(apiServiceMock).auth(username, password)
         verify(authInputMock, never()).updateUI(tokenStub.access_token)
     }
+
 
     @Test
     fun auth_onError_shouldNotUpdateUI() = runBlockingTest {
