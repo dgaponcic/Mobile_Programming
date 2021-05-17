@@ -15,6 +15,7 @@ class FeedPresenter(val view: FeedInput, val apiService: APIClient): FeedOutput 
             }.onSuccess {
                 handleAPIData(it)
             }.onFailure {
+                handleAPIDataError(it)
                 print(it)
             }
         }
@@ -30,5 +31,11 @@ class FeedPresenter(val view: FeedInput, val apiService: APIClient): FeedOutput 
         MainScope().launch {
             view.updateUI(posts)
         }
+    }
+
+    private fun handleAPIDataError(error: Throwable) {
+        MainScope().launch {
+            view.showErrorAlert("An error occurred.")
         }
     }
+}
