@@ -3,6 +3,7 @@ package com.project.lab1.presentation.auth
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.project.lab1.databinding.ActivityAuthBinding
 import com.project.lab1.presentation.menu.NavigationActivity
@@ -34,5 +35,13 @@ class AuthActivity: AuthInput, AppCompatActivity() {
 
         val intent = Intent(this, NavigationActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun showErrorAlert(message: String) {
+        AlertDialog.Builder(this)
+            .setTitle("Data Fetching Error")
+            .setMessage(message)
+            .setPositiveButton("OK", null)
+            .show()
     }
 }

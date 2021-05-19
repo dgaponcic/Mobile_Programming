@@ -8,6 +8,7 @@ import com.project.lab1.presentation.APIClient
 import com.project.lab1.presentation.menu.NavigationActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.MainScope
 
 class AuthPresenter(val view: AuthInput, val apiService: APIClient): AuthOutput {
     override fun auth(login: String, password: String) {
@@ -18,6 +19,7 @@ class AuthPresenter(val view: AuthInput, val apiService: APIClient): AuthOutput 
                 handleAPIData(it)
             }.onFailure {
                 print(it)
+                handleAPIDataError(it)
             }
         }
     }
@@ -25,7 +27,13 @@ class AuthPresenter(val view: AuthInput, val apiService: APIClient): AuthOutput 
     private fun handleAPIData(data: AuthToken) {
         val token = data.access_token
         if (token != "") {
-        view.updateUI(token)
+            view.updateUI(token)
+        }
+    }
+
+    private fun handleAPIDataError(error: Throwable) {
+        MainScope().launch {
+            view.showErrorAlert("An error occurred.")
         }
     }
 }
